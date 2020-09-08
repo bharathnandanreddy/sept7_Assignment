@@ -1,0 +1,36 @@
+.Header{
+    align-content: center;
+    width: 100%;
+    height: 55px;
+    background-color: #007bff;
+    position: relative;
+}
+.Title{
+    position: absolute;
+    top:50%;
+    font-size: large;
+    font-weight: 500;
+    color:#fff;
+    margin-left: 30px;
+    transform: translateY(-50%)
+}
+
+.Check{
+    position: relative;
+    margin: 20px 0 30px 0px;
+}
+.Check div{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.Check div span{
+    
+    margin-right: 50px;
+}
+
+.Table{
+   padding-top: 50px;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Js Assignment</title>
+        <style>
+            div{
+                margin-left: 10px;
+            }
+            h1{
+                text-align: center;
+            }
+            body{
+                margin: 10px 10px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+
+            <h1>Javascript Assignment</h1>
+            <hr>
+            <br>
+
+            <p>1. Write a function to accept a number n and print sum of n number.</p>
+            <div>
+                <input type="number" placeholder="enter a number" id="ques1"/>
+                &nbsp;
+                <button onclick="sum_of_n()">Answer</button>
+                <p>Sum of N numbers is <span  id="ans1"></span></p>
+            </div>
+
+            <br/>
+
+            <p>2. Write a function to accept a number n and print sum of square of n number.</p>
+            <div>
+                <input type="number" placeholder="enter a number" id="ques2"/>
+                &nbsp;
+                <button onclick="sum_of_square()">Answer</button>
+                <p>Sum of squares of N numbers is <span  id="ans2"></span></p>
+            </div>
+
+            <br/>
+
+            <p>3. Write a function to display following output.</p>
+            <div>
+                <input type="number" placeholder="enter a number" id="ques3"/>
+                &nbsp;
+                <button onclick="pattern()">Answer</button>
+                <p>Pattern is :</p><span  id="ans3"></span>
+                
+            </div>
+
+
+            <br/>
+
+            <p>4. Write a function to enter a number and print its number.</p>
+            <div>
+                <input type="number" placeholder="enter a number" id="ques4"/>
+                &nbsp;
+                <button onclick="number()">Answer</button>
+                <p>Number is : <span  id="ans4"></span></p>
+                
+            </div>
+
+            <br/>
+
+            <p>5. Write a function to enter a string and print its reverse.</p>
+            <div>
+                <input type="text" placeholder="enter a string" id="ques5"/>
+                &nbsp;
+                <button onclick="reverse()">Answer</button>
+                <p>Reverse is : <span  id="ans5"></span></p>
+                
+            </div>
+
+            <br/>
+
+            <p>6. Write a program to create two time object having properties hour and min. Display sum of two time.</p>
+            <div>
+                <input type="time" name="time" id="time1" /> + <input type="time" name="time"  id="time2"/>
+                &nbsp;
+                <button onclick="sumOfTime()">Answer</button>
+                <p>Sum of two time is : <span  id="ans6"></span></p>
+                
+            </div>
+
+            <br/>
+
+            <p>7. Implement below screen.</p>
+            <div style="width: 265px;">
+               <label>First Number</label> <span style="margin-left: 30px;"><input type="number" placeholder="enter a number" id="num1"/></span><br>
+               <label>Second Number</label> <span style="margin-left: 12px;"> <input type="number" placeholder="enter a number" id="num2"/></span>
+                <p style="margin-left: 120px;">Result  <span  id="ans7"></span></p>
+                <button  style="float: right;" onclick="sumoftwo()">Sum</button>
+                <br>
+            
+                
+            </div>
+   
+            <br>
+                <p>8. Create employee object with following properties and methods, and display in console.
+                </p>
+
+                <div style="margin-left: 50px;">
+                    <p>Id, name, basic, hra, getTotalSalary()</p>
+                    <p>totalSalary = basic +hra*.4;</p>
+                    
+                    <button onclick="display()">Display</button>
+                  
+                </div>
+
+        </div>
+        <br>
+    </body>
+
+    <script>
+
+
+      function  sum_of_n(){
+        var n=document.getElementById("ques1").value;  
+
+        var sum=0;
+        for(i = 1; i <= n; i++){
+            sum+=i;
+        }
+        document.getElementById("ans1").innerHTML=sum
+      }
+
+
+
+      function  sum_of_square(){
+        var n=document.getElementById("ques2").value;  
+
+        var sum=0;
+        for(i = 1; i <= n; i++){
+            sum+=(i*i);
+        }
+        document.getElementById("ans2").innerHTML=sum
+      }
+
+
+      
+      function  pattern(){
+        var n=document.getElementById("ques3").value;  
+        var sum="";
+        for(i = 1; i <= n; i++){
+            for(j=1;j<=i;j++){
+                sum+=j+" "
+            }
+            sum+="<br>"
+        }
+
+        document.getElementById("ans3").innerHTML=sum
+
+      }
+
+      
+      function  number(){
+        var n=document.getElementById("ques4").value;  
+
+
+        document.getElementById("ans4").innerHTML=n
+      }
+
+
+      
+      function  reverse(){
+        var n=document.getElementById("ques5").value;  
+        var op = "";
+        for (var i = n.length - 1; i >= 0; i--) {
+            op += n[i];
+        }
+    
+
+        document.getElementById("ans5").innerHTML=op
+      }
+
+
+      function sumOfTime(){
+
+        var [h,m,a] =document.getElementById("time1").value.split(":");
+
+        var d1 = new Date(0, 0, 0, h, m);
+        [h,m,a] =document.getElementById("time2").value.split(":");
+
+        var d2 = new Date(0, 0, 0, h, m);
+
+        var hours=d1.getHours()+d2.getHours()
+
+        if(hours>24){
+          hours=  hours - 24
+        }
+
+        var min=d1.getMinutes()+d2.getMinutes()
+
+        if(min>60 )
+        min=min-60
+
+        var op=new Date(0,0,0,hours,min);
+
+
+        document.getElementById("ans6").innerHTML=op.toLocaleString('en-US', { hour: 'numeric',minute: 'numeric', hour12: true })
+
+      }
+
+
+      function  sumoftwo(){
+        var n1= parseInt(document.getElementById("num1").value);  
+        var n2= parseInt(document.getElementById("num2").value);  
+        
+
+        document.getElementById("ans7").innerHTML=n1+n2
+      }
+
+
+      function display(){
+          
+            class Employee  {
+                constructor(id,name,basic,hra) {
+                    this.id = id;
+                    this.name=name;
+                    this.basic=parseInt(basic);
+                    this.hra=parseInt(hra);
+                    this.totalSalary=this.basic +this.hra*.4;
+                }
+                getTotalSalary() {
+                    return this.totalSalary;
+                }
+            }
+
+            var emp=new Employee(1,"employee",15000,8000)
+            console.log(emp)
+            console.log("Total salary is " +emp.getTotalSalary())
+
+      }
+
+
+
+        
+    </script>
+</html>
